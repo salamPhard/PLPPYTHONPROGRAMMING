@@ -6,11 +6,10 @@ import urllib.request
 # Create your views here.
 def index(request):
     if request.method == "POST":
-        api_key = "f9a57093cbb2ccab21957ad7cc7a5aae"
 
         city = request.POST['city']
-        #source = urllib.request.urlopen("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid="+api_key+"&units=metric").read()
-        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=f9a57093cbb2ccab21957ad7cc7a5aae').read()
+
+        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=<API_KEY>').read()
         load_data = json.loads(source)
         data = {
             "country_code": str(load_data['sys']['country']),
